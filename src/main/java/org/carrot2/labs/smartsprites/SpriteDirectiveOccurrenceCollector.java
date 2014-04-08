@@ -91,7 +91,7 @@ public class SpriteDirectiveOccurrenceCollector
         }
         finally
         {
-            Closeables.closeQuietly(reader);
+            try { reader.close(); } catch (Exception e) {}
         }
 
         return occurrences;
@@ -148,7 +148,7 @@ public class SpriteDirectiveOccurrenceCollector
         }
         finally
         {
-            Closeables.closeQuietly(reader);
+            try { reader.close(); } catch (Exception e) {}
         }
 
         return directives;

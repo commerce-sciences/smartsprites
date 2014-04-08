@@ -375,7 +375,7 @@ public class SpriteBuilder
         }
         finally
         {
-            Closeables.closeQuietly(originalCssReader);
+            try { originalCssReader.close(); } catch (Exception e) {}
             processedCssWriter.close();
         }
     }

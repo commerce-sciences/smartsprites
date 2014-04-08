@@ -146,7 +146,7 @@ public class SpriteImageBuilder
             }
             finally
             {
-                Closeables.closeQuietly(is);
+                try { is.close(); } catch (Exception e) {}
             }
 
             messageLog.setCssFile(null);
@@ -242,7 +242,7 @@ public class SpriteImageBuilder
         }
         finally
         {
-            Closeables.closeQuietly(spriteImageOuputStream);
+            try { spriteImageOuputStream.close(); } catch (Exception e) {}
         }
     }
 

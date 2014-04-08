@@ -207,8 +207,8 @@ public class SpriteImage
             }
             finally
             {
-                Closeables.closeQuietly(is);
-                Closeables.closeQuietly(digestInputStream);
+                try { is.close(); } catch (Exception e) {}
+                try { digestInputStream.close(); } catch (Exception e) {}
                 digest.reset();
             }
         }
